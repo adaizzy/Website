@@ -1,0 +1,48 @@
+
+<html>
+	<head>
+		<link rel="stylesheet" href="mystylesheet.css">
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	
+	<body>
+		<div id="topfloatbar">
+			<a href="">
+				<img src="favicon.png" align=left>
+			</a>
+			<h1 class="topbar">Tunes to Sing</h1>
+			
+		</div>
+		
+		<div id="leftbar">
+		<a href="http://127.0.0.1/"><h3>home</h3></a>
+			<a href=""><h3>login</h3></a>
+
+			</div>
+			
+		</div>
+						
+		<div class="textbody">
+			<div  id="login" class="loginbox">
+				<h1>Please enter login information below. <br></h1>
+				<form method = "post" action="existinguservalidation.php">
+					<h2><label for="emailLogin">Email Address:</label> <input id="emailLogin" type="text" name="emailLogin" class="reguser" value=""><br>
+					<label for="passwordCheck">Password: </label> <input id="passwordCheck" type="password" name="passwordCheck" class="reguser" value=""><br></h2>
+					<input type="submit" name="loginCheck" value="Login">
+				</form>
+				<hr>
+				To create a new account, please click on new user link below.<br>
+				<a href="http://127.0.0.1/newuser.html">New User</a>
+			</div>
+		</div>
+
+		<div id="footer">
+			<footer>
+				<hr>
+				&copy Amber Louie, 2017
+				<!--<?php echo date("Y"); ?>-->
+			</footer>
+		</div>
+
+	</body>
+</html>

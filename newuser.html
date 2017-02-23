@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="mystylesheet.css">
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	
+	<body>
+		<div id="topfloatbar">
+			<a href="">
+				<img src="favicon.png" align=left>
+			</a>
+			<h1 class="topbar">Tunes to Sing</h1>
+			
+		</div>
+		
+		<div id="leftbar">
+			<a href="http://127.0.0.1/"><h3 id="nav">home</h3></a>
+			<a href="http://127.0.0.1/login.html"><h3>login</h3></a>
+			<a href=""><h3></h3></a>
+		
+		
+			
+		</div>
+			<div class="textbody">
+				<div  id="login" class="loginbox" >
+					<h2>For new users, please fill in form below.  If you already have login credentials, please login by clicking either login button on the top or the link in the menu to the left.<br></h2>
+				<div>
+					<form method="post" action = "validate.php">
+						<h2><label for="firstname">First Name:</label> <input id="firstname" type="text" name="firstname" class="newuser" value="">
+						<br>
+						<label for="lastname">Last Name:</label> <input id="lastname" type="text" name="lastname" class="newuser" value="">
+						<br>
+						<label for="dob">Date of birth: </label><input id="dob" type="date" name="dob" class="newuser" value="">
+						<br>
+						<label for="email1">Email address:</label> <input id="email1" type="text" name="email1" class="newuser" value="">
+						<br>
+						<label for="email2">Repeat Email address:</label> <input id="email2" type="text" name="email2" class="newuser" value="">
+						<br>
+						<label for="password1">Password:</label> <input id="password1"type="password" name="password1" class="newuser" value="">
+						<br>
+						<label for="password2">Repeat Password:</label> <input id="password2"type="password" name="password2" class="newuser" value="">
+						<br></h2>
+						<input type="submit" name="newUserInfo" value="Create">
+					</form>
+					</div>
+				</div>
+
+			</div>
+
+
+		<div id="footer">
+			<footer>
+				<hr>
+				&copy Amber Louie, 2017
+			</footer>
+		</div>
+
+	</body>
+</html>
