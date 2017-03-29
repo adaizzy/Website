@@ -9,15 +9,19 @@
 			<a href="">
 				<img src="favicon.png" align=left>
 			</a>
+				<a href="">
+				<img src="Login-Button-smaller.jpg" align=right>
+				</a>
 			<h1 class="topbar">Tunes to Sing</h1>
 			
 		</div>
 		
 		<div id="leftbar">
-			<a href=""><h3 id="nav">home</h3></a>
-			<a href="login.html"><h3>login</h3></a>
+			<a href="./index.php"><h3 id="nav">home</h3></a>
+			<a href="./login.php"><h3 id="nav">login</h3></a></a>
 			<a href=""><h3></h3></a>
 			<div id="rightbar">
+
 			</div>
 		</div>
 		
