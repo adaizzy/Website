@@ -21,7 +21,6 @@ session_start();
 		
 		<div id="leftbar">
 		<a href="index.php"><h3>home</h3></a>
-			<a href="./login.php"><h3>login</h3></a>
 			<?php if(!isset($_SESSION['isLoggedIn'])){ ?>
 				<a href="./login.php"><h3 id="nav">login</h3></a>
 			<?php } ?>
@@ -33,7 +32,7 @@ session_start();
 			<?php if(isset($_SESSION['Type'])){ 
 				if ($_SESSION['Type'] == 2 || $_SESSION['Type'] == 1) {?>
 					<a href="./reguser.php"><h3>User Page</h3></a>
-					<a href="./addimage.php"><h3>upload image</h3></a>
+					<a href="./addsong.php"><h3>upload song</h3></a>
 				<?php } ?>
 			<?php } ?>
 			

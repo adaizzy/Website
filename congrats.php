@@ -29,6 +29,7 @@ session_start();
 			<?php if(isset($_SESSION['Type'])){ 
 				if ($_SESSION['Type'] == 2 || $_SESSION['Type'] == 3) {?>
 					<a href="./reguser.php"><h3>User Page</h3></a>
+					<a href="./addsong.php"><h3>Add Song</h3></a>
 				<?php } ?>
 			<?php } ?>
 			
@@ -40,6 +41,7 @@ session_start();
 		</div>
 		
 		<div class="textbody">
+
 			<h2 id="congrats">Congrats account successfully created.</h2>
 		</div>
 		

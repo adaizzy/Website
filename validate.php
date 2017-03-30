@@ -72,6 +72,8 @@ $_SESSION['emailFormat'] = false;
 		
 	} else {
 		$dao -> saveNewUser($_POST['firstname'],$_POST['lastname'],$_POST['password1'], $_POST['email1'],$_POST['dob']);
-		header("location:./congrats.php");
+
+		header("location:./congrats.php"); 
+
 	}
 ?>

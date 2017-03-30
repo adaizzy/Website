@@ -15,28 +15,28 @@ class Dao{
 			new PDO ("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
 	}
 	
-	public function savenewuser($firstname,$lastname,$password1,$email,$dob){
+	public function saveNewUser($firstname,$lastname,$password1,$email,$dob){
 		$conn = $this -> getConnection();
 		$passwordHashed = password_hash($password1, PASSWORD_DEFAULT);
 		$userStatus = 1;
 		$userType = 3;
 		$saveQuery = 
-			"INSERT INTO users (fname,lname,pword, user_type, email,dob)
+			"INSERT INTO newuser (email,fname,lname,pword, userID ,DOB)
 			VALUES 
-			(:first_name,:last_name,:user_pass,:user_status,:user_type,:email,:dob)";
+			(:email,:fname,:lname,:pword,:userID,:DOB)";
 		$q = $conn ->prepare($saveQuery);
+		$q -> bindParam(":email",$email);
 		$q -> bindParam(":fname",$firstname);
 		$q -> bindParam(":lname",$lastname);
 		$q -> bindParam(":pword",$passwordHashed);
-		$q -> bindParam(":user_type",$userType);
-		$q -> bindParam(":email",$email);
-		$q -> bindParam(":dob",$dob);
+		$q -> bindParam(":userID",$userType);
+		$q -> bindParam(":DOB",$dob);
 		$q -> execute();
 	}
-	
+				
 	public function userValidation($emailAddr, $suppliedPass){
 		$conn = $this -> getConnection();
-		$getQuery = "SELECT id, first_name, email, user_pass, user_status, user_type FROM users WHERE email = :emailAddr";
+		$getQuery = "SELECT fname, email, pword, userID FROM newuser WHERE email = :emailAddr";
 		$q = $conn -> prepare($getQuery);
 		$q -> bindParam(":emailAddr", $emailAddr);
 		$q -> execute();
@@ -77,4 +77,5 @@ class Dao{
 		$q -> bindParam(":userstatus", $userStatus);
 		$q -> execute();
 	}
+			
 }
