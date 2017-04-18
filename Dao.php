@@ -36,7 +36,7 @@ class Dao{
 				
 	public function userValidation($emailAddr, $suppliedPass){
 		$conn = $this -> getConnection();
-		$getQuery = "SELECT fname, email, pword, userID FROM newuser WHERE email = :emailAddr";
+		$getQuery = "SELECT fname, lname, email, pword, userID FROM newuser WHERE email = :emailAddr";
 		$q = $conn -> prepare($getQuery);
 		$q -> bindParam(":emailAddr", $emailAddr);
 		$q -> execute();
@@ -46,20 +46,37 @@ class Dao{
 	
 	public function getCurrentUsers(){
 		$conn = $this->getConnection();
-		return $conn->query("SELECT id, first_name, last_name, user_status, user_type, email FROM users");
+		return $conn->query("SELECT email, fname, lname, userID FROM newuser");
 	}
 	
+		public function getCurrentSongs(){
+		$conn = $this->getConnection();
+		return $conn->query("SELECT email, artist, songName FROM song");
+	}
 	
 	public function getUserType($typeNumber){
 		$conn = $this->getConnection();
-		$getQuery = "SELECT description FROM user_type WHERE id = :id";
+		$getQuery = "SELECT userdID FROM newuser WHERE userID = :id";
 		$q = $conn -> prepare($getQuery);
 		$q -> bindParam(":id", $typeNumber);
 		$q -> execute();
 		$info = $q -> fetchAll();
 		return reset($info);
 	}
-	
+
+	public function saveSong($email,$songName,$artist){
+		$conn = $this->getConnection();
+			$saveQuery = 
+			"INSERT INTO song (email,songName,artist)
+			VALUES 
+			(:email,:songName,:artist)";
+		$q = $conn ->prepare($saveQuery);
+		$q -> bindParam(":email",$email);
+		$q -> bindParam(":songName",$songName);
+		$q -> bindParam(":artist",$artist);
+		$q -> execute();
+	}
+/*	
 	public function deleteUser($id){
 		$conn = $this->getConnection();
 		$setDelete = "DELETE FROM users where id = :id";
@@ -76,6 +93,6 @@ class Dao{
 		$q -> bindParam(":id",$id);
 		$q -> bindParam(":userstatus", $userStatus);
 		$q -> execute();
-	}
+	}*/
 			
 }

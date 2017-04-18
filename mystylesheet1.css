@@ -1,0 +1,140 @@
+body{
+	background-color:#B49EB5;
+	background-image:url("Abstract-Rainbow-Background-HD.jpg");
+	background-size: 100% 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.newuserpage{
+	color:red;
+	text-align:right;
+}
+
+h1.topbar {
+	//text-align: center;
+	margin-left: 35%;	
+	color: black;
+	font-size: 4.0vw;
+}
+
+h1.aboutpage {
+	text-align: center;
+	color: black;
+	font-size: 3.0vw;
+}
+
+h2.centertext {
+	text-align: center;
+	color: black;
+	font-size: 5.0vw;
+}
+
+p{
+	font-family: 'Cinzel', serif;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+#login{
+	text-align:center;
+}
+
+.loginbox{
+	left: 12%;
+	right: 12%;
+	min-width: 100%;
+	min-height: auto;
+	position: static;
+}
+
+footer{
+
+	position:relative;
+	left:0;
+	right:0;
+	bottom: 0;
+	text-align:center;
+}
+
+a:link, a:visited{
+	color:#13D713;
+}
+
+
+a:hover{
+	color: #FC29A0;
+}
+
+a:active{
+	color: #39A4F9;
+}
+
+#nav{
+	color: #36A4F9;
+}
+
+
+#topfloatbar{
+	//background-image: url("musicnotes.png");
+	top: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+	//border: 2px solid blue;
+}
+
+#leftbar{
+	left: 0;
+	top:175px;
+	position: fixed;
+	float: left;
+	min-width: 10%;
+	min-height: 78%;
+}
+
+#footer{
+	position: fixed;
+	bottom:0;
+	width:110%;
+	text-align:center;
+}
+
+label{
+	display:inline-block;
+	float: left;
+	clear:left;
+	text-align: right;
+	width: 50%;
+}
+
+input.newuser{
+	display: inline-block;
+	float:left;
+}
+
+
+input.reguser{
+	display: inline-block;
+	float:left;
+}
+.datenumbers{
+	size:2;
+}
+
+.textbody{
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 175px 20% 10% 10%;
+	position: static;
+	clear: both;
+	text-align: center;
+}
+
+
+

@@ -12,27 +12,27 @@
   if($_SESSION['isLoggedIn'] == 1 && ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1)){
 
 		
-		if(isset($_POST['songName'])){
-			$name = $_POST['songName'];
+		if(isset($_POST['imagename'])){
+			$name = $_POST['imagename'];
 		} else {
-			$_SESSION['song'] = true;
+			$_SESSION['fileNameSet'] = true;
 			$name = '';
 		}
 		
 
-      if(isset($_POST['artist'])){
-		  $description = $_POST['artist'];
+      if(isset($_POST['imagedescription'])){
+		  $description = $_POST['imagedescription'];
 	  } else {
 		  $description =  "";
 	  }
 	  $imagePath = "";
 	  
 	  //print_r($name);
-	  //print_r($_SESSION['song']);
+	  //print_r($_SESSION['fileNameSet']);
 	  
 	  if(empty($name)){
 		 $_SESSION['fileEnteredDescription'] = $description;
-		 header("location:./addsong.php");
+		 header("location:http://webdev/~gwirth/addimage.php");
 	  } else {
 
 		  if (count($_FILES) > 0) {
@@ -40,10 +40,10 @@
 				$_SESSION['fileError']=true;
 				$_SESSION['fileEnteredDescription'] = $description;
 				$_SESSION['fileEnteredName'] = $name;
-				header("location:http:./addsong.php");
+				header("location:http://webdev/~gwirth/addimage.php");
 			  throw new Exception("Error: " . $_FILES["file"]["error"]);
 			} else {
-			  $basePath = "./public_html";
+			  $basePath = "/home/students/gwirth/public_html";
 			  $imagePath = "/uploadimages/" . $_FILES["file"]["name"];
 			  if (!move_uploaded_file($_FILES["file"]["tmp_name"], $basePath . $imagePath)) {
 				throw new Exception("File move failed");
@@ -52,8 +52,8 @@
 		  }
 		
 	  $dao->saveImage($name, $description, $imagePath);
-	  header("location:http:./addsong.php");
+	  header("location:http://webdev/~gwirth/addimage.php");
 	  }
   } else {
-	  header("location:./notloggedin.php");
+	  header("location:http://webdev/~gwirth/notloggedin.php");
   }

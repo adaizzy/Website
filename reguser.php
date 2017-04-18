@@ -2,7 +2,7 @@
 //session_start();
 require_once "Dao.php";
 $dao = new Dao();
-$upimages = $dao->getImages();
+
 ?>
 <html>
 	<head>
@@ -28,7 +28,7 @@ $upimages = $dao->getImages();
 						<img src="logout.jpg" align=right>
 						</a>
 					<?php } ?>
-			<?pjp } ?>
+			<?php } ?>
 			<h1 class="topbar">Tunes to Sing</h1
 			
 		</div>

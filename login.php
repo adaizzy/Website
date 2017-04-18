@@ -48,7 +48,7 @@ session_start();
 		<div class="textbody">
 			<div  id="login" class="loginbox">
 				<h1>Please enter login information below. <br></h1>
-				<form method = "post" action="existinguservalidation.php">
+				<form method = "post" action="./existinguservalidation.php">
 					<h2><label for="emailLogin">Email Address:</label> <input id="emailLogin" type="text" name="emailLogin" class="reguser" value=""/><br>
 					<?php if(isset($_SESSION['emailLoginCheck'])){if($_SESSION['emailLoginCheck'] == true){?><span class="newuserpage">*Please enter a email address</span> <?php }} ?><br>
 					<label for="passwordCheck">Password: </label> <input id="passwordCheck" type="password" name="passwordCheck" class="reguser" value=""/><br></h2>
@@ -70,4 +70,4 @@ session_start();
 		</div>
 
 	</body>	
-</html>
+</html>	

@@ -63,9 +63,7 @@ $_SESSION['emailFormat'] = false;
 		$_SESSION['emailFormat'] = true; 
 		$totalValidation = false;
 	}
-	
 
-	//print_r ($_SESSION);
 
 	if ($totalValidation == false){
 		header("location:./newuser.php");

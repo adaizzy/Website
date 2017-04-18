@@ -3,7 +3,8 @@
 require_once "Dao.php";
 $dao = new Dao();
 
-session_start();
+
+
 $missingEmail = false;
 $missingPassword = false;
 $_SESSION['emailLoginCheck'] = false;
@@ -37,37 +38,35 @@ $_SESSION=$_POST;
 		$info['email'] = "";
 	}
 	
-	if(password_verify($_POST['passwordCheck'], $info['user_pass'])){
+	if(password_verify($_POST['passwordCheck'], $info['pword'])){
 		echo 'valid';
+		$_SESSION['user_status']=1;
 	} else{
 		echo 'invalid';
 	}
-	if(strcmp($info['email'],$_POST['emailLogin']) == 0  && password_verify($_POST['passwordCheck'], $info['user_pass'])){
+	
+	if(strcmp($info['email'],$_POST['emailLogin']) == 0  && password_verify($_POST['passwordCheck'], $info['pword'])){
 		
 		$_SESSION['UserName'] = $info['fname'];
 		$_SESSION['Type'] = $info['userID'];
-		$info['user_status'] = 1;
-		}
-
-			
-		if($info['userID'] == 2 && $info['user_status'] == 1){
-			$_SESSION['isLoggedIn']= true;
-			$_SESSION['usertype'] = 2;
-			header("location:./admin.php");
-		} elseif ($info['userID'] == 1 && $info['user_status'] == 1){
-			$_SESSION['isLoggedIn']= true;
-			$_SESSION['usertype'] = 1;
-			header("location:./reguser.php");
-		} elseif ($info['userID'] == 3 && $info['user_status'] == 1){
-			$_SESSION['isLoggedIn']= true;
-			$_SESSION['usertype'] = 3;
+		if($info['user_status'] == 2 ){
 			header("location:./addsong.php");
 		}
-		
- 	else {
-		$_SESSION['isLoggedIn']= true;
-		$_SESSION['usertype'] = 2;
+		if($info['userID'] == 2 && $_SESSION['user_status'] == 1){
+			$_SESSION['isLoggedIn']= true;
+			$_SESSION['userID'] = 2;
+			header("location:./admin.php");
+		} elseif ($info['userID'] == 1 && $_SESSION['user_status'] == 1){
+			$_SESSION['isLoggedIn']= true;
+			$_SESSION['userID'] = 1;
+			header("location:./reguser.php");
+		} elseif ($info['userID'] == 3 && $_SESSION['user_status'] == 1){
+			$_SESSION['isLoggedIn']= true;
+			$_SESSION['userID'] = 3;
+			header("location:./addsong.php");
+		}
+	 
+	}else {
 		header("location:./addsong.php");
-
-	}
+		}
 ?>

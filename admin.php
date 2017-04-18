@@ -1,11 +1,11 @@
 <?php
-session_start();
+
 require_once "Dao.php";
 $dao = new Dao();
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="mystylesheet.css">
+		<link rel="stylesheet" href="mystylesheet1.css">
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
@@ -45,7 +45,7 @@ $dao = new Dao();
 			<?php } ?>
 			<?php if(isset($_SESSION['Type'])){ 
 				if ($_SESSION['Type'] == 2 || $_SESSION['Type'] == 3) {?>
-					<a href="./reguser.php"><h3>User Page</h3></a>
+					<a href="./logout.php"><h3>Log Out</h3></a>
 				<?php } ?>
 			<?php } ?>
 			
@@ -59,8 +59,9 @@ $dao = new Dao();
 		</div>
 		
 		<div class="textbody">
+		<div align='center'>
 			<h2 id="congrats"><br>
-			<?php if(isset($_SESSION['Type'])  && $_SESSION['Type'] == 2){ ?>
+			<?php if(isset($_SESSION['userID'])  && $_SESSION['userID'] == 2){ ?>
 				<h1 class="tableheader">Current Users</h1>
 				<?php
 					$currentUsers = $dao->getCurrentUsers();
@@ -68,47 +69,36 @@ $dao = new Dao();
 
 					<table class="admin">
 					<tr><h2>
-					<td>First Name</td>
-					<td>Last Name</td>
-					<td>User Staus</td>
-					<td>User Type</td>
-					<td>Email</td>
-					<td>Upgrage to Regular?</td>
-					<td>Inactivate?</td>
-					<td>Delete?</td>
+					<td style="padding:0 15px 0 10px;">First Name</td>
+					<td style="padding:0 15px 0 10px;">Last Name</td>
+					<td style="padding:0 15px 0 10px;">User Type</td>
+					<td style="padding:0 15px 0 10px;">Email</td>
 					</h2></tr>
 					<?php foreach ($currentUsers as $currentUser) { 
-					$id = $currentUser['id']?>
+					?>
 					<tr><h2>
-					<td><?php echo htmlspecialchars($currentUser['first_name']); ?></td>
-					<td><?php echo htmlspecialchars($currentUser['last_name']); ?></td>
-					<?php $userStatus = $dao -> getUserStatus($currentUser['user_status']) ?>
-					<td><?php echo htmlspecialchars($userStatus['id_status']); ?></td>
-					<?php $userType = $dao -> getUserType($currentUser['user_type']) ?>
-					<td><?php echo htmlspecialchars($userType['description']); ?></td>
+					<td><?php echo htmlspecialchars($currentUser['fname']); ?></td>
+					<?php
+					?>
+					<td><?php echo htmlspecialchars($currentUser['lname']); ?></td>
+					<?php 
+					?>
+					<td><?php echo htmlspecialchars($currentUser['userID']); ?></td>
+					<?php 
+					?>
+					<?php 
+					?></td>
 					<td><?php echo htmlspecialchars($currentUser['email']); ?></td>
-					<td><form action="upgrade.php" method="post">
-					<input type="hidden" name="Upgrade" value="<?php echo $id ?>">
-					<input type="submit" name="upgrade" value="Upgrade"></form></td>
-					<?php if($currentUser['user_status'] == 1){ ?>
-						<td><form action="inactivate.php" method="post">
-						<input type="hidden" name="Inactive" value="<?php echo $id ?>">
-						<input type="submit" name="inactive" value="Inactivate"></form></td>
-					<?php } else { ?>
-						<td><form action="activate.php" method="post">
-						<input type="hidden" name="Active" value="<?php echo $id ?>">
-						<input type="submit" name="active" value="Activate"></form></td>
-					<?php } ?>
-					<td><form action="delete.php" method="post">
-					<input type="hidden" name="UserID" value="<?php echo $id ?>">
-					<input type="submit" name="delete" value="Delete"></form></td>
-					</h2></tr>
+					<?php 
+					 ?>
+					
 					<?php } ?>
 					</table>
 			<?php } else { ?>
 					You are not authorized to view contents on this page.  Please login to access 
 					the admin panel.
 			<?php } ?></h2>
+		</div>
 		</div>
 		
 		<div id="footer">
