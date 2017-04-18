@@ -34,7 +34,7 @@ $dao = new Dao();
 		</div>
 
 		<div id="leftbar">
-			<a href="./index"><h3>main</h3></a>
+			<a href="./index.php"><h3>main</h3></a>
 			<?php if(!isset($_SESSION['isLoggedIn'])){ ?>
 				<a href="./login.php"><h3>login</h3></a>
 			<?php } ?>
