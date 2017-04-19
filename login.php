@@ -8,6 +8,15 @@ session_start();
 		<link rel="shortcut icon" href="favicon.ico" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="fade.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("p").hover(function(){
+				$(this).css("background-color", "yellow");
+				}, function(){
+				$(this).css("background-color", "pink");
+			});
+		});
+		</script>
 	</head>
 	
 	<body>
