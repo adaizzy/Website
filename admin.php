@@ -5,7 +5,7 @@ $dao = new Dao();
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="mystylesheet1.css">
+		<link rel="stylesheet" href="mystylesheet.css">
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
@@ -21,11 +21,9 @@ $dao = new Dao();
 			<?php } else { 
 				if ($_SESSION['isLoggedIn'] != 1) {?>
 					<a href="./login.php">
-					<img src="Login-Button-smaller.jpg" align=right>
 					</a>
 				<?php } else { ?>
 					<a href="./logout.php">
-					<img src="logout.jpg" align=right>
 					</a>
 				<?php } ?>
 			<?php } ?>
