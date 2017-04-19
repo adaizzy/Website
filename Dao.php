@@ -49,11 +49,16 @@ class Dao{
 		return $conn->query("SELECT email, fname, lname, userID FROM newuser");
 	}
 	
-		public function getCurrentSongs(){
+/*	public function getCurrentSongs($emailAddr){
 		$conn = $this->getConnection();
-		return $conn->query("SELECT email, artist, songName FROM song");
-	}
-	
+		$getQuery = "SELECT email, songName, artist FROM newuser WHERE email = :email";
+		$q = $conn -> prepare($getQuery);
+		$q -> bindParam(":email", $emailAddr);
+		$q -> execute();
+		$info = $q -> fetchAll();
+		return reset($info);
+	}*/
+
 	public function getUserType($typeNumber){
 		$conn = $this->getConnection();
 		$getQuery = "SELECT userdID FROM newuser WHERE userID = :id";
@@ -94,5 +99,12 @@ class Dao{
 		$q -> bindParam(":userstatus", $userStatus);
 		$q -> execute();
 	}*/
+
+	
+		public function getCurrentSongs(){
+		$conn = $this->getConnection();
+		return $conn->query("SELECT email, artist, songName FROM song");
+	}
+	
 			
 }

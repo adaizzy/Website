@@ -7,6 +7,20 @@
 	<head>
 		<link rel="stylesheet" href="mystylesheet.css">
 		<link rel="shortcut icon" href="favicon.ico" />
+		<style>
+		table, td, th {
+			border: 2px solid black;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 75%;
+		}
+
+		th {
+			height: auto;
+		}
+		</style>
 	</head>
 	<body>
 		<div id="topfloatbar">
@@ -27,19 +41,19 @@
 			<?php } ?>
 		</div>
 		
-<div class="textbody">
+		<div class="textbody">
 		<div align='center'>
 			<h2 id="congrats"><br>
-			<?php if(isset($_SESSION['userID'])  && $_SESSION['userID'] == 2){ ?>
-				<h1 class="tableheader">Full Song List</h1>
+			<?php if(isset($_SESSION['emailLogin'])) { ?>
+				<h1 class="fulltable">Full Song List</h1>
 				<?php
-					$currentSongs = $dao->getCurrentSongs();
+					$currentSongs = $dao->getCurrentSongs($_SESSION['emailLogin']);
 				?>
 
-					<table class="fullsonglist">
+					<table class="admin">
 					<tr><h2>
-					<td style="padding:0 15px 0 10px;">Song Name</td>
-					<td style="padding:0 15px 0 10px;">Artist</td>>
+					<td style="padding:15px 0 10px;">Song Name</td>
+					<td style="padding:15px 0 10px;">Artist</td>
 					</h2></tr>
 					<?php foreach ($currentSongs as $currentSong) { 
 					?>
@@ -52,9 +66,8 @@
 					?>					
 					<?php } ?>
 					</table>
-			<?php } else { ?>
-					You are not authorized to view contents on this page.  Please login to access.
-			<?php } ?></h2>
+			<?php } ?>
+			</h2><tr>
 		</div>
 		</div>
 		
