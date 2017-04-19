@@ -49,14 +49,14 @@
 				<?php
 					$currentSongs = $dao->getCurrentSongs($_SESSION['emailLogin']);
 				?>
-
 					<table class="admin">
 					<tr><h2>
 					<td style="padding:15px 0 10px;">Song Name</td>
 					<td style="padding:15px 0 10px;">Artist</td>
 					</h2></tr>
-					<?php foreach ($currentSongs as $currentSong) { 
-					?>
+					
+					<?php foreach ($currentSongs as $currentSong) { ?>
+
 					<tr><h2>
 					<td><?php echo htmlspecialchars($currentSong['songName']); ?></td>
 					<?php
